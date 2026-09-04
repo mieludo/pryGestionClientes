@@ -170,6 +170,7 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.gbConsulta);
             this.Name = "frmListadoClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Clientes";
             this.gbConsulta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();

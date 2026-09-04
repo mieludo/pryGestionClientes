@@ -57,5 +57,61 @@ namespace pryGestionClientes
 
 
         }
+
+        public int CantidadClientes()
+        {
+            int c = 0;
+            string DatosLeidos = "";
+
+
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            while (DatosLeidos != null)
+            {
+                c++;
+                DatosLeidos = AD.ReadLine();
+            }
+
+
+            return c;
+        }
+        public Decimal DeudaClientes()
+        {
+            string DatosLeidos = "";
+            string[] VectorDatos = new string[4];
+            Decimal Total = 0;
+
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            
+
+            while (DatosLeidos != null)
+            {
+
+
+                VectorDatos = DatosLeidos.Split(';');
+
+
+                Total = Total + Convert.ToDecimal(VectorDatos[2]);
+
+                DatosLeidos = AD.ReadLine();
+
+            }
+
+
+            AD.Close();
+            AD.Dispose();
+
+            return Total;
+
+        }
+
+
     }
 }

@@ -22,6 +22,8 @@ namespace pryGestionClientes
         private void btnListar_Click(object sender, EventArgs e)
         {
             archivo.Listar(dgvDatos);
+            lblCantidadDos.Text = archivo.CantidadClientes().ToString();
+            lblPromedioDos.Text = archivo.DeudaClientes().ToString();
         }
     }
 }
