@@ -33,17 +33,17 @@ namespace pryGestionClientes
 
 
             StreamReader AD = new StreamReader(NombreArchivo);
-            
+
             DatosLeidos = AD.ReadLine();
-            
+
             Grilla.Rows.Clear();
 
             while (DatosLeidos != null)
             {
-                
+
 
                 VectorDatos = DatosLeidos.Split(';');
-               
+
 
                 Grilla.Rows.Add(VectorDatos[0], VectorDatos[1], VectorDatos[2], VectorDatos[3]);
 
@@ -89,7 +89,7 @@ namespace pryGestionClientes
 
             DatosLeidos = AD.ReadLine();
 
-            
+
 
             while (DatosLeidos != null)
             {
@@ -110,6 +110,123 @@ namespace pryGestionClientes
 
             return Total;
 
+        }
+        public decimal Promedio()
+        {
+            string DatosLeidos = "";
+            string[] VectorDatos = new string[4];
+            decimal Total = 0;
+            Int32 c = 0;
+
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            while (DatosLeidos != null)
+            {
+                VectorDatos = DatosLeidos.Split(';');
+
+                c++;
+                Total = Total + Convert.ToDecimal(VectorDatos[2]);
+                
+
+                DatosLeidos = AD.ReadLine();
+            }
+            AD.Close();
+            AD.Dispose();
+
+            return Total / c;
+        }
+
+        public void ListarDeudores(DataGridView Grilla)
+        {
+            string DatosLeidos = "";
+            string[] VectorDatos = new string[4];
+
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            Grilla.Rows.Clear();
+
+            while (DatosLeidos != null)
+            { 
+                VectorDatos = DatosLeidos.Split(';');
+
+                if (Convert.ToDecimal(VectorDatos[2]) > 0)
+                {
+                    Grilla.Rows.Add(VectorDatos[0], VectorDatos[1], VectorDatos[2], VectorDatos[3]);
+
+                    
+                }
+
+                DatosLeidos = AD.ReadLine();
+
+            }
+
+
+            AD.Close();
+            AD.Dispose();
+
+        }
+        public decimal CantidadDeudores()
+        {
+            string DatosLeidos = "";
+            string[] VectorDatos = new string[4];
+            
+            Int32 c = 0;
+
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            while (DatosLeidos != null)
+            {
+                VectorDatos = DatosLeidos.Split(';');
+
+                if(Convert.ToDecimal(VectorDatos[2]) > 0)
+                { 
+                    c++;
+                }
+                DatosLeidos = AD.ReadLine();
+            }
+            AD.Close();
+            AD.Dispose();
+
+            return c;
+        }
+        public decimal PromedioDeudores()
+        {
+            string DatosLeidos = "";
+            string[] VectorDatos = new string[4];
+            decimal Total = 0;
+            Int32 c = 0;
+
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            while (DatosLeidos != null)
+            {
+                VectorDatos = DatosLeidos.Split(';');
+
+                if(Convert.ToDecimal(VectorDatos[2]) > 0)
+                {
+                    c++;
+                    Total = Total + Convert.ToDecimal(VectorDatos[2]);
+                }
+
+                DatosLeidos = AD.ReadLine();
+            }
+            
+            AD.Close();
+            AD.Dispose();
+
+            return Total / c;
         }
 
 

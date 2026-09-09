@@ -21,12 +21,17 @@ namespace pryGestionClientes
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            archivo.Grabar(txtCodigo.Text, txtNombre.Text, txtDeuda.Text, txtLimite.Text);
-            MessageBox.Show("Cliente grabado.", "Carga de clientes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            archivo.Grabar(txtCodigo.Text, txtNombre.Text, txtLimite.Text, txtDeuda.Text);
+            
             txtCodigo.Clear();
             txtNombre.Clear();
-            txtDeuda.Clear();
             txtLimite.Clear();
+            txtDeuda.Clear();
+
+        }
+
+        private void frmCargarCliente_Load(object sender, EventArgs e)
+        {
 
         }
     }

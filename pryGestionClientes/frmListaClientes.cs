@@ -10,25 +10,20 @@ using System.Windows.Forms;
 
 namespace pryGestionClientes
 {
-    public partial class frmListadoClientes : Form
+    public partial class frmListaClientes : Form
     {
-        public frmListadoClientes()
+        public frmListaClientes()
         {
             InitializeComponent();
         }
-
         clsArchivoClientes archivo = new clsArchivoClientes();
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            dgvDatos.Rows.Clear();
-
-            archivo.Listar(dgvDatos);
+            archivo.ListarDeudores(dgvDatos);
             lblTotalDos.Text = archivo.DeudaClientes().ToString();
-            lblCantidadDos.Text = archivo.CantidadClientes().ToString();
-            lblPromedioDos.Text = archivo.Promedio().ToString();
-
-            
+            lblCantidadDos.Text = archivo.CantidadDeudores().ToString();
+            lblPromedioDos.Text = archivo.PromedioDeudores().ToString();
         }
     }
 }

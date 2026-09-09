@@ -59,6 +59,12 @@
     <Compile Include="frmGestionLab.Designer.cs">
       <DependentUpon>frmGestionLab.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaClientes.Designer.cs">
+      <DependentUpon>frmListaClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionLab.resx">
       <DependentUpon>frmGestionLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaClientes.resx">
+      <DependentUpon>frmListaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoClientes.resx">
       <DependentUpon>frmListadoClientes.cs</DependentUpon>

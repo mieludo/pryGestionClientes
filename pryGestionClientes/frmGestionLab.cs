@@ -28,5 +28,11 @@ namespace pryGestionClientes
             Form formulario = new frmListadoClientes();
             formulario.ShowDialog();
         }
+
+        private void listadoDeClientesDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario = new frmListaClientes();
+            formulario.ShowDialog();
+        }
     }
 }
