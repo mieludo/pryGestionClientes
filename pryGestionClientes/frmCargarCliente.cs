@@ -21,12 +21,12 @@ namespace pryGestionClientes
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            archivo.Grabar(txtCodigo.Text, txtNombre.Text, txtLimite.Text, txtDeuda.Text);
+            archivo.Grabar(txtCodigo.Text, txtNombre.Text, txtDeuda.Text, txtLimite.Text);
             
             txtCodigo.Clear();
             txtNombre.Clear();
-            txtLimite.Clear();
             txtDeuda.Clear();
+            txtLimite.Clear();
 
         }
 

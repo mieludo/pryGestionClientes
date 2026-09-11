@@ -25,5 +25,10 @@ namespace pryGestionClientes
             lblCantidadDos.Text = archivo.CantidadDeudores().ToString();
             lblPromedioDos.Text = archivo.PromedioDeudores().ToString();
         }
+
+        private void frmListaClientes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -172,7 +172,8 @@
             this.Controls.Add(this.gbConsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListaClientes";
-            this.Text = "frmListaClientes";
+            this.Text = "Clientes Deudores";
+            this.Load += new System.EventHandler(this.frmListaClientes_Load);
             this.gbConsulta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);

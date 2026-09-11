@@ -42,6 +42,7 @@
             this.lblCantidadDos = new System.Windows.Forms.Label();
             this.lblPromedioDos = new System.Windows.Forms.Label();
             this.btnListar = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.gbConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
@@ -156,12 +157,25 @@
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
+            // btnReportes
+            // 
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReportes.ForeColor = System.Drawing.Color.Black;
+            this.btnReportes.Location = new System.Drawing.Point(325, 518);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(104, 23);
+            this.btnReportes.TabIndex = 8;
+            this.btnReportes.Text = "Generar Reporte";
+            this.btnReportes.UseVisualStyleBackColor = false;
+            // 
             // frmListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(489, 520);
+            this.ClientSize = new System.Drawing.Size(487, 572);
+            this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lblPromedioDos);
             this.Controls.Add(this.lblCantidadDos);
@@ -196,5 +210,6 @@
         private System.Windows.Forms.Label lblCantidadDos;
         private System.Windows.Forms.Label lblPromedioDos;
         private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnReportes;
     }
 }

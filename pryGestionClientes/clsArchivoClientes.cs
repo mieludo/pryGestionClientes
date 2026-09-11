@@ -12,18 +12,15 @@ namespace pryGestionClientes
     {
         public string NombreArchivo = "Clientes.csv";
 
-        public void Grabar(string Cod, string Nom, string Deu, string Lim)
+        public void Grabar(string Cod, string Nom, string Lim, string Deu)
         {
             StreamWriter AD = new StreamWriter(NombreArchivo, true);
 
             AD.Write(Cod + ";" + Nom + ";" + Deu + ";");
             AD.WriteLine(Lim);
 
-
-
             AD.Close();
             AD.Dispose();
-
         }
 
         public void Listar(DataGridView Grilla)
@@ -45,7 +42,7 @@ namespace pryGestionClientes
                 VectorDatos = DatosLeidos.Split(';');
 
 
-                Grilla.Rows.Add(VectorDatos[0], VectorDatos[1], VectorDatos[2], VectorDatos[3]);
+                Grilla.Rows.Add(VectorDatos[0], VectorDatos[1], VectorDatos[3], VectorDatos[2]);
 
                 DatosLeidos = AD.ReadLine();
 
@@ -63,8 +60,6 @@ namespace pryGestionClientes
             int c = 0;
             string DatosLeidos = "";
 
-
-
             StreamReader AD = new StreamReader(NombreArchivo);
 
             DatosLeidos = AD.ReadLine();
@@ -75,6 +70,8 @@ namespace pryGestionClientes
                 DatosLeidos = AD.ReadLine();
             }
 
+            AD.Close();
+            AD.Dispose();
 
             return c;
         }
@@ -144,32 +141,30 @@ namespace pryGestionClientes
             string DatosLeidos = "";
             string[] VectorDatos = new string[4];
 
-
             StreamReader AD = new StreamReader(NombreArchivo);
 
             DatosLeidos = AD.ReadLine();
-
             Grilla.Rows.Clear();
 
             while (DatosLeidos != null)
-            { 
+            {
                 VectorDatos = DatosLeidos.Split(';');
 
                 if (Convert.ToDecimal(VectorDatos[2]) > 0)
                 {
-                    Grilla.Rows.Add(VectorDatos[0], VectorDatos[1], VectorDatos[2], VectorDatos[3]);
-
-                    
+                    Grilla.Rows.Add(
+                        VectorDatos[0],
+                        VectorDatos[1],
+                        VectorDatos[3],
+                        VectorDatos[2]
+                    );
                 }
 
                 DatosLeidos = AD.ReadLine();
-
             }
-
 
             AD.Close();
             AD.Dispose();
-
         }
         public decimal CantidadDeudores()
         {
@@ -228,7 +223,15 @@ namespace pryGestionClientes
 
             return Total / c;
         }
-
-
+        public void CargarDatosIniciales()
+        {
+            if (CantidadClientes() == 0)
+            {
+                Grabar("1", "Joa", "1000", "500");
+                Grabar("2", "Gise", "2000", "0");
+                Grabar("3", "Lau", "2000", "1000");
+                Grabar("4", "Ariel", "3000", "0");
+            }
+        }
     }
 }

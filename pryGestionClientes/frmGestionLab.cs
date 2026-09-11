@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace pryGestionClientes
 {
+    
     public partial class frmGestionLab : Form
     {
+        clsArchivoClientes archivo = new clsArchivoClientes();
         public frmGestionLab()
         {
             InitializeComponent();
+            archivo.CargarDatosIniciales();
         }
 
         private void agregarNuevosClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,6 +36,11 @@ namespace pryGestionClientes
         {
             Form formulario = new frmListaClientes();
             formulario.ShowDialog();
+        }
+
+        private void frmGestionLab_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
