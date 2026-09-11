@@ -223,6 +223,58 @@ namespace pryGestionClientes
 
             return Total / c;
         }
+
+        public void GenerarReporte()
+        {
+            string DatosLeidos = "";
+            string[] VectorDatos = new string[4];
+
+            Int32 cantidad = 0;
+            Decimal total = 0;
+
+            StreamWriter Reporte = new StreamWriter("Reporte.csv",false,Encoding.UTF8);
+
+            Reporte.WriteLine("");
+            Reporte.WriteLine("Listado de Clientes");
+            Reporte.WriteLine("");
+            Reporte.WriteLine("Código;Nombre;Límite;Deuda");
+
+            StreamReader AD = new StreamReader(NombreArchivo);
+
+            DatosLeidos = AD.ReadLine();
+
+            while (DatosLeidos != null)
+            {
+                VectorDatos = DatosLeidos.Split(';');
+
+                Reporte.Write(VectorDatos[0]);
+                Reporte.Write(";");
+                Reporte.Write(VectorDatos[1]);
+                Reporte.Write(";");
+                Reporte.Write(VectorDatos[3]);
+                Reporte.Write(";");
+                Reporte.WriteLine(VectorDatos[2]);
+
+                cantidad++;
+                total = total + Convert.ToDecimal(VectorDatos[2]);
+
+                DatosLeidos = AD.ReadLine();
+            }
+
+            AD.Close();
+            AD.Dispose();
+
+            Reporte.WriteLine("");
+            Reporte.Write("Total de Deuda:;;");
+            Reporte.WriteLine(total);
+            Reporte.Write("Cantidad de Clientes:;;");
+            Reporte.WriteLine(cantidad);
+            Reporte.Write("Promedio de Deuda:;;");
+            Reporte.WriteLine(total / cantidad);
+
+            Reporte.Close();
+            Reporte.Dispose();
+        }
         public void CargarDatosIniciales()
         {
             if (CantidadClientes() == 0)

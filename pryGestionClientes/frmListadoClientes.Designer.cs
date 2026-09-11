@@ -168,6 +168,7 @@
             this.btnReportes.TabIndex = 8;
             this.btnReportes.Text = "Generar Reporte";
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // frmListadoClientes
             // 

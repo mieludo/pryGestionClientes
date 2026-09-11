@@ -30,5 +30,12 @@ namespace pryGestionClientes
 
             
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            archivo.GenerarReporte();
+
+            MessageBox.Show("Reporte generado exitosamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
